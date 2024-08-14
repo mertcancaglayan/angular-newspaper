@@ -1,0 +1,44 @@
+.sticky-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  height: 54.75px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-items {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-items .item a {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  font-weight: 400;
+  text-decoration: none !important;
+  color: #000;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .sticky-wrapper {
+    display: none;
+  }
+}
