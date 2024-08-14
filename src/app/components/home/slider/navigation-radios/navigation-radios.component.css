@@ -1,0 +1,33 @@
+.radio-buttons {
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 0;
+}
+
+input[type="radio"] {
+  box-sizing: border-box;
+  width: 20px;
+  height: 8px;
+  margin: 6px;
+  padding: 0;
+  appearance: none;
+  background-color: grey;
+}
+
+input[type="radio"] {
+  box-sizing: border-box;
+  width: 20px;
+  height: 8px;
+  margin: 6px;
+  padding: 0;
+  appearance: none;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked {
+  background-color: green;
+}

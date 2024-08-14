@@ -1,0 +1,11 @@
+<div id="sticky-wrapper" class="sticky-wrapper" style="height: 54.75px">
+  <div class="container">
+    <nav class="navbar" role="navigation">
+      <ul class="navbar-items">
+        <li class="item" *ngFor="let item of items; let i = index">
+          <a [routerLink]="item">{{ item }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

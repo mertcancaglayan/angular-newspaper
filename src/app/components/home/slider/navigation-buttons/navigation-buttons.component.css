@@ -1,0 +1,26 @@
+.button-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-container .slide-buttons {
+  background: transparent;
+  font-size: 50px;
+  border: none;
+  color: grey;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.button-container .slide-buttons:hover {
+  color: rgb(49, 49, 49);
+}
+
+@media screen and (max-width: 1000px) {
+  .button-container {
+    display: none;
+  }
+}
