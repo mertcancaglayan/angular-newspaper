@@ -7,7 +7,7 @@ import { NavigationRadiosComponent } from './navigation-radios/navigation-radios
   standalone: true,
   imports: [NavigationButtonsComponent, NavigationRadiosComponent],
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'],
+  styleUrls: ['./slider.component.css', '../home.component.css'],
 })
 export class SliderComponent {
   currentPosition: number = 100;

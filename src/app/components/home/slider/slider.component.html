@@ -1,8 +1,6 @@
 <div class="slider-section">
+  <app-navigation-buttons (slideEvent)="slide($event)"></app-navigation-buttons>
   <div class="slider-container">
-    <app-navigation-buttons
-      (slideEvent)="slide($event)"
-    ></app-navigation-buttons>
     <div class="slides">
       <div class="slide">
         <div class="slide-item">
