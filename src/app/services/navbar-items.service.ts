@@ -4,19 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class NavbarService {
-  private items: string[] = [
-    'home',
-    'categories',
-    'business',
-    'entertainment',
-    'general',
-    'health',
-    'science',
-    'sports',
-    'technology',
-  ];
+  private items = {
+    home: 'home',
+    categories: 'categories',
+    categoriesList: [
+      'business',
+      'entertainment',
+      'general',
+      'health',
+      'science',
+      'sports',
+      'technology',
+    ],
+    contact: 'contact',
+    aboutMe: 'about me',
+  };
 
-  getItems(): string[] {
+  getItems(): { [key: string]: any } {
     return this.items;
   }
 }

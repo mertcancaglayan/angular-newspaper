@@ -5,7 +5,7 @@
 .section-title {
   width: 100%;
   color: #000;
-  margin-bottom: 50px;
+  margin: 0 0 50px 0;
 }
 
 .section-title h2 {
@@ -14,6 +14,7 @@
   border-bottom: 1px solid #222;
   position: relative;
   display: inline-block;
+  margin: 0;
 }
 
 .container {
@@ -37,6 +38,12 @@
   flex-wrap: wrap;
 }
 
+.col-3 {
+  flex: 0 0 23%;
+  max-width: 23%;
+  padding: 0 1%;
+}
+
 .col-4 {
   flex: 0 0 30%;
   max-width: 30%;
@@ -53,6 +60,12 @@
 .col-8 {
   flex: 0 0 64%;
   max-width: 64%;
+  padding: 0 1%;
+}
+
+.col-9 {
+  flex: 0 0 73%;
+  max-width: 73%;
   padding: 0 1%;
 }
 
@@ -88,25 +101,12 @@
     justify-content: center;
   }
 
-  .col-4 {
-    flex: 0 0 80%;
-    max-width: 80%;
-    padding: 0 1.4%;
-  }
-
-  .col-lg-6 {
-    flex: 0 0 80%;
-    max-width: 80%;
-    padding: 0 1%;
-  }
-
+  .col-3,
+  .col-4,
+  .col-lg-6,
+  .col-10,
+  .col-9,
   .col-8 {
-    flex: 0 0 80%;
-    max-width: 80%;
-    padding: 0 1%;
-  }
-
-  .col-10 {
     flex: 0 0 80%;
     max-width: 80%;
     padding: 0 1%;

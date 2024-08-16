@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './components/home/home.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent],
-  template: `<app-home></app-home>
-  `,
+  imports: [RouterOutlet],
+  template: ` <router-outlet></router-outlet> `,
 })
 export class AppComponent {
   title = 'angular-newspaper';
