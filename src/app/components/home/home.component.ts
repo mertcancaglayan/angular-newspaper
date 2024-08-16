@@ -6,6 +6,7 @@ import { SectionComponent } from './section1/section.component';
 import { Section2Component } from './section2/section2.component';
 import { Section3Component } from './section3/section3.component';
 import { Section4Component } from './section4/section4.component';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ import { Section4Component } from './section4/section4.component';
     Section2Component,
     Section3Component,
     Section4Component,
-  ],
+    FooterComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
