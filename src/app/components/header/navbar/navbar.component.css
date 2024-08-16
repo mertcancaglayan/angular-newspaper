@@ -4,18 +4,18 @@
   justify-content: center;
   width: 100%;
   position: sticky;
-  top: 0;
-  height: 54.75px;
+  position: -webkit-sticky;
+  top: 0; 
+  z-index: 99;
+  background-color: #fff;
 }
 
 .container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   display: flex;
   justify-content: center;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .navbar-items {
@@ -33,7 +33,6 @@
   font-weight: 400;
   text-decoration: none !important;
   color: #000;
-  display: inline-block;
   padding: 0.5rem 1rem;
 }
 
