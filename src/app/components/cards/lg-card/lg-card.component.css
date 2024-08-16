@@ -21,11 +21,11 @@
   width: 30%;
 }
 
+
 .lg-h-card-text-area {
   width: 70%;
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
 }
 
 .lg-h-card-text-area h2 {

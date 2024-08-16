@@ -1,0 +1,7 @@
+.category-title span {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  display: block;
+}

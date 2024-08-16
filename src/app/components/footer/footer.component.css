@@ -3,6 +3,9 @@ footer {
 }
 
 .footer-container {
+  padding: 0 50px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
