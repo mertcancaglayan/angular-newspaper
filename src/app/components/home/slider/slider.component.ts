@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavigationButtonsComponent } from './navigation-buttons/navigation-buttons.component';
 import { NavigationRadiosComponent } from './navigation-radios/navigation-radios.component';
+import { DlCardComponent } from "../../cards/dl-card/dl-card.component";
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [NavigationButtonsComponent, NavigationRadiosComponent],
+  imports: [NavigationButtonsComponent, NavigationRadiosComponent, DlCardComponent],
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css', '../home.component.css'],
 })

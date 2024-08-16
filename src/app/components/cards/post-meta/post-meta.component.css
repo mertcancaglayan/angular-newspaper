@@ -1,0 +1,11 @@
+.post-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.post-meta a {
+  text-decoration: none;
+  background-color: transparent;
+  color: black;
+}
