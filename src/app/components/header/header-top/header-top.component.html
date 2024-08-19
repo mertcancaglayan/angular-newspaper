@@ -30,8 +30,14 @@
         </svg>
       </a>
     </div>
-    <form action="#" class="search-form">
-      <input type="email" class="form-control" placeholder="Search..." />
+    <form (submit)="onSearch($event)" class="search-form">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        name="searchQuery"
+        class="form-control"
+        placeholder="Search..."
+      />
       <button type="submit" class="btn btn-secondary">
         <div class="search-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -19,9 +19,10 @@ import { CommonModule } from '@angular/common';
 export class CategorySectionComponent implements OnInit {
   category: string | null = null;
   articles: any[] = [];
+  popularArticles: any[] = [];
   error: boolean = false;
   currentPage: number = 1;
-  articlesPerPage: number = 10;
+  articlesPerPage: number = 20;
   totalArticles: number = 0;
   totalPages: number = 0;
 
@@ -32,15 +33,21 @@ export class CategorySectionComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.category = params.get('category');
-          return this.newsApi.getTopHeadlines(this.category || 'general');
+          return this.newsApi.getTopHeadlines(
+            this.category || 'general',
+            this.currentPage,
+            this.articlesPerPage
+          );
         })
       )
       .subscribe(
         (data) => {
           this.articles = data.articles;
-          this.totalArticles = this.articles.length;
-          console.log(this.totalArticles);
-
+          this.popularArticles = data.articles;
+          this.totalArticles = data.totalResults;
+          this.totalPages = Math.ceil(
+            this.totalArticles / this.articlesPerPage
+          );
           this.error = false;
         },
         (error) => {
@@ -48,6 +55,26 @@ export class CategorySectionComponent implements OnInit {
           this.error = true;
         }
       );
+  }
+
+  scrollTop() {
+    window.scrollTo(0, 0);
+  }
+
+  changePage(page: number): void {
+    if (page > 0 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.ngOnInit();
+      this.scrollTop();
+    }
+  }
+
+  getPages(): number[] {
+    const pages = [];
+    for (let i = 1; i <= this.totalPages; i++) {
+      pages.push(i);
+    }
+    return pages;
   }
 
   capitalizeFirstLetter(value: string | null): string {

@@ -4,7 +4,7 @@
       <div class="col-9">
         <div class="section-title category-title">
           <span class="caption d-block small">Categories</span>
-          <h2>{{ capitalizeFirstLetter(category) || "All"}}</h2>
+          <h2>{{ capitalizeFirstLetter(category) || "All" }}</h2>
         </div>
 
         <!-- Loading State -->
@@ -23,6 +23,20 @@
             *ngFor="let article of articles"
             [article]="article"
           ></app-lg-card>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <ul>
+            <li *ngFor="let page of getPages()">
+              <button
+                (click)="changePage(page)"
+                [class.active]="page === currentPage"
+              >
+                {{ page }}
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -44,7 +58,7 @@
         <!-- Articles List -->
         <div *ngIf="articles.length && !error">
           <app-side-card
-            *ngFor="let article of articles.slice(0, 5); let i = index"
+            *ngFor="let article of popularArticles.slice(0, 5); let i = index"
             [article]="article"
             [listNumber]="i + 1"
           ></app-side-card>
