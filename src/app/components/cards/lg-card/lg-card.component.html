@@ -2,19 +2,29 @@
   <div class="lg-h-card-container">
     <div class="lg-h-card-text-area">
       <h2>
-        <a href="blog-single.html"
-          >News Needs to Meet Its Audiences Where They Are</a
-        >
+        <a [href]="article?.url" target="_blank">{{ article?.title }}</a>
       </h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
-        temporibus praesentium neque, voluptatum quam quibusdam.
+        {{
+          article?.description ||
+            "No description available. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
+        temporibus praesentium neque, voluptatum quam quibusdam."
+        }}
       </p>
-      <app-post-meta></app-post-meta>
+      <app-post-meta
+        [author]="author"
+        [publishedDate]="publishedDate"
+        [newsUrl]="newsUrl"
+      ></app-post-meta>
     </div>
     <div
       class="thumbnail"
-      style="background-image: url(../../../../assets/images/img_h_4.jpg.webp)"
+      [ngStyle]="{
+        'background-image':
+          'url(' +
+          (article?.urlToImage || '../../assets/images/h-placeholder-img.png') +
+          ')'
+      }"
     ></div>
   </div>
 </div>

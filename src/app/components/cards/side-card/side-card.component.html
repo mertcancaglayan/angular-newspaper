@@ -1,9 +1,13 @@
 <div class="side-card">
-  <div class="list-number">01</div>
+  <div class="list-number">{{ listNumber }}</div>
   <div class="trend-contents">
     <h2>
-      <a href="#">News Needs to Meet Its Audiences Where They Are</a>
+      <a [href]="newsUrl">{{ article?.title }}</a>
     </h2>
-    <app-post-meta></app-post-meta>
+    <app-post-meta
+      [author]="author"
+      [publishedDate]="publishedDate"
+      [newsUrl]="newsUrl"
+    ></app-post-meta>
   </div>
 </div>
