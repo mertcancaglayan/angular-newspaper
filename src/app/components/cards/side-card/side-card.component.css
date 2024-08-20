@@ -11,6 +11,8 @@
   line-height: 1;
   color: #ccc;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
 }
 
 .side-card h2 {
@@ -28,4 +30,3 @@
   text-decoration: none;
   background-color: transparent;
 }
-

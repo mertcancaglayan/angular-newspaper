@@ -4,28 +4,66 @@
       <div class="col-9">
         <div class="section-title category-title">
           <span class="caption d-block small">Categories</span>
-          <h2>{{ capitalizeFirstLetter(category) }}</h2>
+          <h2>{{ capitalizeFirstLetter(category) || "All" }}</h2>
         </div>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
+
+        <!-- Loading State -->
+        <div *ngIf="!articles.length && !error" class="loading">
+          <p>Loading...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error" class="error">
+          <p>Unable to load articles. Please try again later.</p>
+        </div>
+
+        <!-- Articles List -->
+        <div *ngIf="articles.length && !error">
+          <app-lg-card
+            *ngFor="let article of articles"
+            [article]="article"
+          ></app-lg-card>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <ul>
+            <li *ngFor="let page of getPages()">
+              <button
+                (click)="changePage(page)"
+                [class.active]="page === currentPage"
+              >
+                {{ page }}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
+
       <aside class="col-3">
         <div class="section-title">
           <h2>Popular Posts</h2>
         </div>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
+
+        <!-- Loading State -->
+        <div *ngIf="!articles.length && !error" class="loading">
+          <p>Loading...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error" class="error">
+          <p>Unable to load articles. Please try again later.</p>
+        </div>
+
+        <!-- Articles List -->
+        <div *ngIf="articles.length && !error">
+          <app-side-card
+            *ngFor="let article of popularArticles.slice(0, 5); let i = index"
+            [article]="article"
+            [listNumber]="i + 1"
+          ></app-side-card>
+        </div>
+
         <p class="side-bar-a">
           <a href="#" class="more">See All Popular Posts <span> =></span></a>
         </p>
