@@ -9,4 +9,10 @@ import { NavbarComponent } from './navbar/navbar.component';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  currentSearchQuery: string = '';
+
+  onSearchQueryChange(query: string): void {
+    this.currentSearchQuery = query;
+  }
+}

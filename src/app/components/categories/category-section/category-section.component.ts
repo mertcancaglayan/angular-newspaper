@@ -18,8 +18,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CategorySectionComponent implements OnInit {
   category: string | null = null;
-  articles: any[] = [];
-  popularArticles: any[] = [];
+  articles: object[] = [];
+  popularArticles: object[] = [];
   error: boolean = false;
   currentPage: number = 1;
   articlesPerPage: number = 20;
@@ -32,7 +32,11 @@ export class CategorySectionComponent implements OnInit {
     this.route.queryParamMap
       .pipe(
         switchMap((params) => {
-          this.category = params.get('category');
+          const newCategory = params.get('category');
+          if (newCategory !== this.category) {
+            this.category = newCategory;
+            this.currentPage = 1;
+          }
           return this.newsApi.getTopHeadlines(
             this.category || 'general',
             this.currentPage,
@@ -42,8 +46,10 @@ export class CategorySectionComponent implements OnInit {
       )
       .subscribe(
         (data) => {
+          if (this.currentPage === 1) {
+            this.popularArticles = data.articles;
+          }
           this.articles = data.articles;
-          this.popularArticles = data.articles;
           this.totalArticles = data.totalResults;
           this.totalPages = Math.ceil(
             this.totalArticles / this.articlesPerPage
