@@ -26,7 +26,6 @@ export class SearchedSectionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private searchService: SearchService,
     private apiService: NewsApiService
   ) {}
 

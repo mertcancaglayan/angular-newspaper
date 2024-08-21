@@ -6,7 +6,8 @@ import { SectionComponent } from './section1/section.component';
 import { Section2Component } from './section2/section2.component';
 import { Section3Component } from './section3/section3.component';
 import { Section4Component } from './section4/section4.component';
-import { FooterComponent } from "../footer/footer.component";
+import { FooterComponent } from '../footer/footer.component';
+import { NewsApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +19,34 @@ import { FooterComponent } from "../footer/footer.component";
     Section2Component,
     Section3Component,
     Section4Component,
-    FooterComponent
-],
+    FooterComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  articles: object[] = [];
+  sliderArticles: object[] = [];
+  error: boolean = false;
+
+  constructor(private apiService: NewsApiService) {}
+
+  ngOnInit(): void {
+    this.fetchArticles();
+  }
+
+  fetchArticles() {
+    this.apiService.getTopHeadlines().subscribe(
+      (data) => {
+        this.sliderArticles = data.articles.slice(0, 3);
+        this.articles = data.articles;
+
+        this.error = false;
+      },
+      (error) => {
+        console.error('Error fetching news:', error);
+        this.error = true;
+      }
+    );
+  }
+}

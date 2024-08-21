@@ -9,8 +9,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './lg-card.component.html',
   styleUrl: './lg-card.component.css',
 })
-export class LgCardComponent {
+export class LgCardComponent  {
   @Input() article: any;
+
 
   get author(): string | null {
     return this.article?.author || 'Unknown';
