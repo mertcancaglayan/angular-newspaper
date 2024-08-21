@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationButtonsComponent } from './navigation-buttons/navigation-buttons.component';
 import { NavigationRadiosComponent } from './navigation-radios/navigation-radios.component';
-import { DlCardComponent } from "../../cards/dl-card/dl-card.component";
+import { DlCardComponent } from '../../cards/dl-card/dl-card.component';
+import { CommonModule } from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [NavigationButtonsComponent, NavigationRadiosComponent, DlCardComponent],
+  imports: [
+    NavigationButtonsComponent,
+    NavigationRadiosComponent,
+    DlCardComponent,
+    CommonModule,
+  ],
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css', '../home.component.css'],
 })
 export class SliderComponent {
+  @Input() sliderArticles: Article[] = [];
+  @Input() error: boolean = false;
   currentPosition: number = 100;
   currentIndex: number = 0;
 

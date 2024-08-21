@@ -1,10 +1,23 @@
 <div class="slider-section">
   <app-navigation-buttons (slideEvent)="slide($event)"></app-navigation-buttons>
   <div class="slider-container">
-    <div class="slides">
-      <app-dl-card class="slide"></app-dl-card>
-      <app-dl-card class="slide"></app-dl-card>
-      <app-dl-card class="slide"></app-dl-card>
+    <!-- Loading State -->
+    <div *ngIf="!sliderArticles.length && !error" class="loading">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error">
+      <p>Unable to load articles. Please try again later.</p>
+    </div>
+
+    <!-- Articles List -->
+    <div class="slides" *ngIf="sliderArticles.length && !error">
+      <app-dl-card
+        *ngFor="let article of sliderArticles"
+        [article]="article"
+        class="slide"
+      ></app-dl-card>
     </div>
   </div>
   <app-navigation-radios

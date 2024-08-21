@@ -5,18 +5,48 @@
         <div class="section-title">
           <h2>Recent News</h2>
         </div>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
-        <app-lg-card></app-lg-card>
+
+        <!-- Loading State -->
+        <div *ngIf="!recentArticles.length && !error" class="loading">
+          <p>Loading...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error" class="error">
+          <p>Unable to load articles. Please try again later.</p>
+        </div>
+
+        <!-- Articles List -->
+        <div *ngIf="recentArticles.length && !error">
+          <app-lg-card
+            *ngFor="let article of recentArticles"
+            [article]="article"
+          ></app-lg-card>
+        </div>
       </div>
       <aside class="col-4">
         <div class="section-title">
           <h2>Popular Posts</h2>
         </div>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
-        <app-side-card></app-side-card>
+
+        <!-- Loading State -->
+        <div *ngIf="!popularArticles.length && !error" class="loading">
+          <p>Loading...</p>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error" class="error">
+          <p>Unable to load articles. Please try again later.</p>
+        </div>
+
+        <!-- Articles List -->
+        <div *ngIf="popularArticles.length && !error">
+          <app-side-card
+            *ngFor="let article of popularArticles; let i = index"
+            [article]="article"
+            [listNumber]="i + 1"
+          ></app-side-card>
+        </div>
         <p class="side-bar-a">
           <a href="#" class="more">See All Popular Posts <span> =></span></a>
         </p>

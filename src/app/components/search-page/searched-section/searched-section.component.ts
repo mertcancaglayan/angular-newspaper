@@ -4,6 +4,7 @@ import { LgCardComponent } from '../../cards/lg-card/lg-card.component';
 import { SearchService } from '../../../services/search.service';
 import { NewsApiService } from '../../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-searched-section',
@@ -17,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SearchedSectionComponent implements OnInit {
   searchedQuery: string = '';
-  articles: object[] = [];
+  articles: Article[] = [];
   error: boolean = false;
   currentPage: number = 1;
   articlesPerPage: number = 20;
@@ -26,7 +27,6 @@ export class SearchedSectionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private searchService: SearchService,
     private apiService: NewsApiService
   ) {}
 

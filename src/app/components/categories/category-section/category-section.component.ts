@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NewsApiService } from '../../../services/api.service';
 import { switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-category-section',
@@ -18,8 +19,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CategorySectionComponent implements OnInit {
   category: string | null = null;
-  articles: object[] = [];
-  popularArticles: object[] = [];
+  articles: Article[] = [];
+  popularArticles: Article[] = [];
   error: boolean = false;
   currentPage: number = 1;
   articlesPerPage: number = 20;

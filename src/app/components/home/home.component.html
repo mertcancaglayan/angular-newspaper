@@ -1,7 +1,18 @@
 <app-header></app-header>
-<app-slider></app-slider>
-<app-section1></app-section1>
-<app-section2></app-section2>
-<app-section3></app-section3>
-<app-section4></app-section4>
+<app-slider [error]="error" [sliderArticles]="sliderArticles"></app-slider>
+<app-section1
+  [editorsPickArticles]="editorsPicksArticles"
+  [sidebarArticles]="sidebarArticles"
+></app-section1>
+<app-section2 [editorsPickArticle]="editorsPicksArticles.pop()"></app-section2>
+<app-section3
+  [businessArticles]="businessArticles"
+  [technologyArticles]="technologyArticles"
+  [error]="error"
+></app-section3>
+<app-section4
+  [popularArticles]="popularArticles"
+  [recentArticles]="recentArticles"
+  [error]="error"
+></app-section4>
 <app-footer></app-footer>
