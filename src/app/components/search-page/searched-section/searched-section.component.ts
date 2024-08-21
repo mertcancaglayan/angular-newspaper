@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LgCardComponent } from '../../cards/lg-card/lg-card.component';
 import { SearchService } from '../../../services/search.service';
@@ -30,29 +30,20 @@ export class SearchedSectionComponent implements OnInit {
     private apiService: NewsApiService
   ) {}
 
-  // ngOnInit(): void {
-  //   this.searchService.searchQuery.subscribe((query: string) => {
-  //     this.searchedQuery = query;
-  //     if (this.searchedQuery.trim()) {
-  //       this.fetchArticles(this.searchedQuery);
-  //     }
-  //   });
-  // }
-
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params) => {
       this.searchedQuery = params.get('q') || '';
       if (this.searchedQuery.trim()) {
-        this.fetchArticles(this.searchedQuery);
+        this.currentPage = 1;
+        this.fetchArticles(this.searchedQuery, this.currentPage);
       }
     });
   }
 
-  fetchArticles(query: string): void {
-    this.apiService.searchArticles(query).subscribe(
+  fetchArticles(query: string, page: number): void {
+    this.apiService.searchArticles(query, page, this.articlesPerPage).subscribe(
       (data) => {
         this.articles = data.articles;
-        console.log(this.articles);
         this.totalArticles = data.totalResults;
         this.totalPages = Math.ceil(this.totalArticles / this.articlesPerPage);
         this.error = false;
@@ -71,7 +62,7 @@ export class SearchedSectionComponent implements OnInit {
   changePage(page: number): void {
     if (page > 0 && page <= this.totalPages) {
       this.currentPage = page;
-      this.ngOnInit();
+      this.fetchArticles(this.searchedQuery, this.currentPage);
       this.scrollTop();
     }
   }
