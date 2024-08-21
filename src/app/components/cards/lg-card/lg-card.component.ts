@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
 import { CommonModule } from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-lg-card',
@@ -10,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './lg-card.component.css',
 })
 export class LgCardComponent  {
-  @Input() article: any;
+  @Input() article: Article | undefined;
 
 
   get author(): string | null {

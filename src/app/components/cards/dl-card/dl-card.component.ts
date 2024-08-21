@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
 import { CommonModule } from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-dl-card',
@@ -9,12 +10,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dl-card.component.html',
   styleUrl: './dl-card.component.css',
 })
-export class DlCardComponent implements OnInit {
-  @Input() article: any;
+export class DlCardComponent {
+  @Input() article: Article | undefined;
   @Input() listNumber: number = 0;
-  ngOnInit(): void {
-    console.log(this.article);
-  }
 
   get author(): string | null {
     return this.article?.author || 'Unknown';

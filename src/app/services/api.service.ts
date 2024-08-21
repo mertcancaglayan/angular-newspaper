@@ -29,7 +29,7 @@ export class NewsApiService {
     currentPage: number = 1,
     articlesPerPage: number = 20
   ): Observable<any> {
-    let url = `${this.baseUrl}/everything?q=${searchQuery}&language=en&pageSize=${articlesPerPage}&page=${currentPage}&apiKey=${this.apiKey}`;
+    let url = `${this.baseUrl}/everything?q=${searchQuery}&language=en&sortBy=popularity&pageSize=${articlesPerPage}&page=${currentPage}&apiKey=${this.apiKey}`;
     return this.http.get(url);
   }
 }

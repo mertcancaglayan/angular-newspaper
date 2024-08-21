@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
+import {} from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-side-card',
@@ -9,9 +11,8 @@ import { PostMetaComponent } from '../post-meta/post-meta.component';
   styleUrls: ['./side-card.component.css'],
 })
 export class SideCardComponent {
-  @Input() article: any;
-  @Input() listNumber: number | undefined; 
-
+  @Input() article: Article | undefined;
+  @Input() listNumber: number | undefined;
 
   get author(): string | null {
     return this.article?.author || 'Unknown';

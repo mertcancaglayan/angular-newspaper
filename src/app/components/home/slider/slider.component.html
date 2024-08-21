@@ -14,9 +14,8 @@
     <!-- Articles List -->
     <div class="slides" *ngIf="sliderArticles.length && !error">
       <app-dl-card
-        *ngFor="let article of sliderArticles; let i = index"
+        *ngFor="let article of sliderArticles"
         [article]="article"
-        [listNumber]="i + 1"
         class="slide"
       ></app-dl-card>
     </div>

@@ -3,6 +3,7 @@ import { NavigationButtonsComponent } from './navigation-buttons/navigation-butt
 import { NavigationRadiosComponent } from './navigation-radios/navigation-radios.component';
 import { DlCardComponent } from '../../cards/dl-card/dl-card.component';
 import { CommonModule } from '@angular/common';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-slider',
@@ -17,7 +18,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./slider.component.css', '../home.component.css'],
 })
 export class SliderComponent {
-  @Input() sliderArticles: object[] = [];
+  @Input() sliderArticles: Article[] = [];
   @Input() error: boolean = false;
   currentPosition: number = 100;
   currentIndex: number = 0;

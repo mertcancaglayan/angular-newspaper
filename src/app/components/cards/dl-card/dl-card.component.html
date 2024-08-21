@@ -10,7 +10,9 @@
       }"
     ></div>
     <div class="dl-card-contents">
-      <span class="dl-card-caption">Editor's Pick {{ listNumber }}</span>
+      <span *ngIf="listNumber !== undefined" class="dl-card-caption">
+        Editor's Pick
+      </span>
       <h2>
         <a href="blog-single.html">{{ article?.title }}</a>
       </h2>
