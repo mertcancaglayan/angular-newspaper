@@ -1,0 +1,10 @@
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.contact-page > .site-section {
+  background-color: #f8f9fa;
+}
