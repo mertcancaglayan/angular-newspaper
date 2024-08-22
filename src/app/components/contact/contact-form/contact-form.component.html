@@ -1,0 +1,81 @@
+<form [formGroup]="frm" method="post">
+  <div class="row1">
+    <div class="col-6 form-group">
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        id="fname"
+        formControlName="name"
+        class="form-control form-control-lg"
+      />
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <small *ngIf="name?.errors?.['required']"
+          >First Name is required.</small
+        >
+        <small *ngIf="name?.errors?.['minlength']"
+          >Minimum 2 characters required.</small
+        >
+      </div>
+    </div>
+    <div class="col-6 form-group">
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        id="lname"
+        formControlName="surname"
+        class="form-control form-control-lg"
+      />
+      <div *ngIf="surname?.invalid && (surname?.dirty || surname?.touched)">
+        <small *ngIf="surname?.errors?.['required']"
+          >Last Name is required.</small
+        >
+        <small *ngIf="surname?.errors?.['capitalLetterValidator']"
+          >Must start with a capital letter.</small
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row1">
+    <div class="col-6 form-group">
+      <label for="eaddress">Email Address</label>
+      <input
+        type="text"
+        id="eaddress"
+        formControlName="email"
+        class="form-control form-control-lg"
+      />
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <small *ngIf="email?.errors?.['required']">Email is required.</small>
+        <small *ngIf="email?.errors?.['email']"
+          >Please enter a valid email.</small
+        >
+      </div>
+    </div>
+    <div class="col-6 form-group">
+      <label for="tel">Tel. Number</label>
+      <input
+        type="text"
+        id="tel"
+        formControlName="tel"
+        class="form-control form-control-lg"
+      />
+    </div>
+  </div>
+  <div class="row1">
+    <div class="col-10 form-group">
+      <label for="message">Message</label>
+      <textarea
+        name=""
+        id="message"
+        cols="30"
+        rows="12"
+        class="form-control"
+      ></textarea>
+    </div>
+  </div>
+  <div class="row1">
+    <div class="col-10">
+      <input type="submit" value="Send Message" class="submit-btn" />
+    </div>
+  </div>
+</form>
