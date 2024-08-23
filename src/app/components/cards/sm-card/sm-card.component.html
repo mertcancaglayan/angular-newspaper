@@ -10,7 +10,9 @@
   ></div>
   <div class="contents">
     <h2>
-      <a href="blog-single.html">{{ article?.title }}</a>
+      <a [routerLink]="['/single-blog-page']" [state]="{ article: article }">
+        {{ article?.title }}
+      </a>
     </h2>
     <app-post-meta
       [author]="author"

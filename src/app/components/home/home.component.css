@@ -27,6 +27,10 @@
   margin-left: auto;
 }
 
+.pt-5 {
+  padding-top: 3rem !important;
+}
+
 @media (max-width: 1000px) {
   .container {
     max-width: 960px;
@@ -37,6 +41,7 @@
 .row2 {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .col-3 {
