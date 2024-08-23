@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../../models/article';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dl-card',
   standalone: true,
-  imports: [PostMetaComponent, CommonModule],
+  imports: [PostMetaComponent, CommonModule, RouterLink],
   templateUrl: './dl-card.component.html',
   styleUrl: './dl-card.component.css',
 })

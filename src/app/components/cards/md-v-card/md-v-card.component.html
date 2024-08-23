@@ -1,13 +1,15 @@
 <div class="md-vertical-card">
   <div class="md-v-card-container">
-    <a href="post-single.html"
+    <a href="single-blog-page"
       ><img
         [src]="article?.urlToImage || '../../assets/images/img_h_1.jpg.webp'"
         alt="Image"
         class="img-fluid"
     /></a>
     <h2>
-      <a href="blog-single.html">{{ article?.title }}</a>
+      <a [routerLink]="['/single-blog-page']" [state]="{ article: article }">
+        {{ article?.title }}
+      </a>
     </h2>
     <p>
       {{ article?.content }}Article Content Couldnt Found. Lorem ipsum dolor sit

@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
 import { Article } from '../../../models/article';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-md-h-card',
   standalone: true,
-  imports: [PostMetaComponent, CommonModule],
+  imports: [PostMetaComponent, CommonModule, RouterLink],
   templateUrl: './md-h-card.component.html',
   styleUrl: './md-h-card.component.css',
 })

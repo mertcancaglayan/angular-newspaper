@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
 import { Article } from '../../../models/article';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-md-v-card',
   standalone: true,
-  imports: [PostMetaComponent],
+  imports: [PostMetaComponent, RouterLink],
   templateUrl: './md-v-card.component.html',
   styleUrl: './md-v-card.component.css',
 })
