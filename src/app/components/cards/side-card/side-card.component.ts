@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { PostMetaComponent } from '../post-meta/post-meta.component';
-import {} from '@angular/common';
 import { Article } from '../../../models/article';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-side-card',
   standalone: true,
-  imports: [PostMetaComponent],
+  imports: [PostMetaComponent, RouterLink],
   templateUrl: './side-card.component.html',
   styleUrls: ['./side-card.component.css'],
 })

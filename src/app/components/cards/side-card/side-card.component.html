@@ -2,7 +2,9 @@
   <div class="list-number">0{{ listNumber }}</div>
   <div class="trend-contents">
     <h2>
-      <a href="single-blog-page">{{ article?.title }}</a>
+      <a [routerLink]="['/single-blog-page']" [state]="{ article: article }">
+        {{ article?.title }}
+      </a>
     </h2>
     <app-post-meta
       [author]="author"

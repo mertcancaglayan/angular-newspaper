@@ -7,7 +7,9 @@
         class="img-fluid"
     /></a>
     <h2>
-      <a href="single-blog-page">{{ article?.title }}</a>
+      <a [routerLink]="['/single-blog-page']" [state]="{ article: article }">
+        {{ article?.title }}
+      </a>
     </h2>
     <p>
       {{ article?.content }}Article Content Couldnt Found. Lorem ipsum dolor sit
