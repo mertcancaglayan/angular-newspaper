@@ -17,7 +17,6 @@ export class NavbarService {
       'technology',
     ],
     contact: 'contact',
-    aboutMe: 'about me',
   };
 
   getItems(): { [key: string]: any } {

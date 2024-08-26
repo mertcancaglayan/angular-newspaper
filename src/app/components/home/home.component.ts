@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { SliderComponent } from './slider/slider.component';
 import { SectionComponent } from './section1/section.component';
@@ -23,9 +22,9 @@ import { Article } from '../../models/article';
     FooterComponent,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   articles: Article[] = [];
   sliderArticles: Article[] = [];
   sidebarArticles: Article[] = [];
@@ -39,50 +38,56 @@ export class HomeComponent {
   constructor(private apiService: NewsApiService) {}
 
   ngOnInit(): void {
-    this.fetchArticles('general');
-    this.fetchArticles('business');
-    this.fetchArticles('technology');
-    this.fetchPopularArticles();
+    this.loadArticles();
+    this.loadPopularArticles();
   }
 
-  fetchArticles(category: string) {
-    this.apiService.getTopHeadlines(category || 'general').subscribe(
-      (data) => {
-        switch (category) {
-          case 'general':
-            this.sliderArticles = data.articles.slice(0, 3);
-            this.sidebarArticles = data.articles.slice(0, 4);
-            this.editorsPicksArticles = data.articles.slice(3);
-            this.articles = data.articles;
-            break;
-          case 'business':
-            this.businessArticles = data.articles.slice(0, 3);
-            break;
-          case 'technology':
-            this.technologyArticles = data.articles.slice(0, 3);
-            break;
-        }
+  private loadArticles(): void {
+    const categories = ['general', 'business', 'technology'];
+    categories.forEach((category) => this.fetchArticles(category));
+  }
 
+  private fetchArticles(category: string): void {
+    this.apiService.getTopHeadlines(category).subscribe(
+      (data) => {
+        this.handleArticles(data.articles, category);
         this.error = false;
       },
-      (error) => {
-        console.error('Error fetching news:', error);
-        this.error = true;
-      }
+      (error) => this.handleError(error)
     );
   }
 
-  fetchPopularArticles(): void {
+  private handleArticles(articles: Article[], category: string): void {
+    const newArticles = [...articles];
+    switch (category) {
+      case 'general':
+        this.sliderArticles = newArticles.slice(0, 3);
+        this.sidebarArticles = newArticles.slice(4, 8);
+        this.editorsPicksArticles = newArticles.slice(8);
+        this.articles = newArticles;
+        break;
+      case 'business':
+        this.businessArticles = newArticles.slice(0, 3);
+        break;
+      case 'technology':
+        this.technologyArticles = newArticles.slice(0, 3);
+        break;
+    }
+  }
+
+  private loadPopularArticles(): void {
     this.apiService.searchArticles().subscribe(
       (data) => {
         this.popularArticles = data.articles.slice(0, 4);
         this.recentArticles = data.articles.slice(4, 7);
         this.error = false;
       },
-      (error) => {
-        console.error('Error fetching news:', error);
-        this.error = true;
-      }
+      (error) => this.handleError(error)
     );
+  }
+
+  private handleError(error: any): void {
+    console.error('Error fetching news:', error);
+    this.error = true;
   }
 }

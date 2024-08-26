@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class NewsApiService {
-  // private apiKey = '1db44740b1fc4ad3b414d2cfaca1fb51';
-  private apiKey = '342e4646489b47bf8f2d1fe156be50df';
+  private apiKey = '1db44740b1fc4ad3b414d2cfaca1fb51';
+  // private apiKey = '342e4646489b47bf8f2d1fe156be50df';
   private baseUrl = 'https://newsapi.org/v2';
 
   constructor(private http: HttpClient) {}
