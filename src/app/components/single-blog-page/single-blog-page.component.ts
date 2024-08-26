@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Article } from '../../models/article';
 import { HomeComponent } from '../home/home.component';
 import { NewsApiService } from '../../services/api.service';
@@ -30,6 +30,13 @@ export class SingleBlogPageComponent extends HomeComponent {
   }
 
   override ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const navigation = this.router.getCurrentNavigation();
+        this.article = navigation?.extras?.state?.['article'];
+      }
+    });
+
     super.ngOnInit();
   }
 
@@ -39,5 +46,11 @@ export class SingleBlogPageComponent extends HomeComponent {
 
   get publishedDate(): string | null {
     return this.article?.publishedAt || null;
+  }
+
+  navigateToArticle(article: Article): void {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/single-blog-page'], { state: { article } });
+    });
   }
 }

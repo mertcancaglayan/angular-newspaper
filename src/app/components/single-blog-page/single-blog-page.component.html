@@ -76,6 +76,7 @@
           *ngFor="let article of sidebarArticles; let i = index"
           [article]="article"
           [listNumber]="i + 1"
+          (click)="navigateToArticle(article)"
         ></app-side-card>
         <p class="side-bar-a">
           <a href="#" class="more">See All Trends <span> =></span></a>

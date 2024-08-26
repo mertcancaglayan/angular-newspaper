@@ -10,5 +10,5 @@ import { Article } from '../../../models/article';
   styleUrls: ['./section2.component.css', '../home.component.css'],
 })
 export class Section2Component {
-  @Input() editorsPickArticle: Article | undefined;
+  @Input() editorsPickArticle: Article[] = [];
 }
