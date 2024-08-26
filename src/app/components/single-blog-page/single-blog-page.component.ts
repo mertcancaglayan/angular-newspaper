@@ -6,12 +6,17 @@ import { NewsApiService } from '../../services/api.service';
 import { SideCardComponent } from '../cards/side-card/side-card.component';
 import { CommonModule } from '@angular/common';
 import { PostMetaComponent } from '../cards/post-meta/post-meta.component';
-import { HeaderComponent } from "../header/header.component";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-single-blog-page',
   standalone: true,
-  imports: [SideCardComponent, CommonModule, PostMetaComponent, HeaderComponent],
+  imports: [
+    SideCardComponent,
+    CommonModule,
+    PostMetaComponent,
+    HeaderComponent,
+  ],
   templateUrl: './single-blog-page.component.html',
   styleUrls: ['./single-blog-page.component.css', '../home/home.component.css'],
 })
