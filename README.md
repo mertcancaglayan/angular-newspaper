@@ -1,27 +1,90 @@
-# AngularNewspaper
+# English
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+# Angular Newpaper Project
 
-## Development server
+This is an Angular Newpaper application that includes a fully functional navbar, search, contact page, and slider.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Basic Search Articles**:Search articles through keywords. Uses q params.
+- **Categories**: Visitable category sections of the news.
+- **Single Page**: Switch between pages or visit the clicked articles single page.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Preview
 
-## Build
+![Nespaper Preview](<src/assets/images/ss%20(1).png>) ![Nespaper Preview](<src/assets/images/ss%20(2).png>) ![Nespaper Preview](<src/assets/images/ss%20(3).png>) ![Nespaper Preview](<src/assets/images/ss%20(4).png>)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Demo
 
-## Running unit tests
+You can view a live demo of the application [here](https://angular-newspaper.netlify.app).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Running end-to-end tests
+To run this project locally, follow these steps:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Clone the repository**:
 
-## Further help
+   ```bash
+   git clone https://github.com/mertcancaglayan/angular-newspaper
+   cd angular-calculator
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+
+   ```
+
+3. **Run the application**:
+   ```bash
+   ng serve
+   ```
+   The application will be served at http://localhost:4200/.
+
+# Türkçe
+
+# Angular Gazete Projesi
+
+Bu, tam işlevsel bir gezinme çubuğu, arama, iletişim sayfası ve kaydırıcı içeren bir Angular Gazete uygulamasıdır.
+
+## Özellikler
+
+- **Temel Makale Arama**: Anahtar kelimeler aracılığıyla makale arayın. `q` parametrelerini kullanır.
+- **Kategoriler**: Haberlerin ziyaret edilebilir kategori bölümleri.
+- **Tek Sayfa**: Sayfalar arasında geçiş yapın veya tıklanan makalenin tek sayfasını ziyaret edin.
+- **Duyarlı Tasarım**: Hem masaüstü hem de mobil cihazlar için optimize edilmiştir.
+
+## Önizleme
+
+![Gazete Önizleme](<src/assets/images/ss%20(1).png>) ![Gazete Önizleme](<src/assets/images/ss%20(2).png>) ![Gazete Önizleme](<src/assets/images/ss%20(3).png>) ![Gazete Önizleme](<src/assets/images/ss%20(4).png>)
+
+## Demo
+
+Uygulamanın canlı demosunu [buradan](https://angular-newspaper.netlify.app) görüntüleyebilirsiniz.
+
+## Kurulum
+
+Bu projeyi yerel olarak çalıştırmak için şu adımları izleyin:
+
+1. **Depoyu klonlayın**:
+
+   ```bash
+   git clone https://github.com/mertcancaglayan/angular-newspaper
+   cd angular-calculator
+   ```
+
+2. **Bağımlılıkları yükleyin**:
+
+   ```bash
+   npm install
+
+   ```
+
+3. **Uygulamayı çalıştırın**:
+   ```bash
+   ng serve
+   ```
+   Uygulama http://localhost:4200/ adresinde sunulacaktır.

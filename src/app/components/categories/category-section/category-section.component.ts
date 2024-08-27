@@ -37,6 +37,11 @@ export class CategorySectionComponent implements OnInit {
           if (newCategory !== this.category) {
             this.category = newCategory;
             this.currentPage = 1;
+            return this.newsApi.getTopHeadlines(
+              this.category || 'general',
+              this.currentPage,
+              this.articlesPerPage
+            );
           }
           return this.newsApi.getTopHeadlines(
             this.category || 'general',
@@ -47,9 +52,8 @@ export class CategorySectionComponent implements OnInit {
       )
       .subscribe(
         (data) => {
-          if (this.currentPage === 1) {
-            this.popularArticles = data.articles;
-          }
+          this.popularArticles =
+            this.currentPage === 1 ? data.articles : this.popularArticles;
           this.articles = data.articles;
           this.totalArticles = data.totalResults;
           this.totalPages = Math.ceil(
@@ -71,7 +75,7 @@ export class CategorySectionComponent implements OnInit {
   changePage(page: number): void {
     if (page > 0 && page <= this.totalPages) {
       this.currentPage = page;
-      this.ngOnInit();
+      this.ngOnInit(); 
       this.scrollTop();
     }
   }
