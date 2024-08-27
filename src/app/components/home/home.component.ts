@@ -8,6 +8,7 @@ import { Section4Component } from './section4/section4.component';
 import { FooterComponent } from '../footer/footer.component';
 import { NewsApiService } from '../../services/api.service';
 import { Article } from '../../models/article';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
