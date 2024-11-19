@@ -15,6 +15,9 @@ This is an Angular Newpaper application that includes a fully functional navbar,
 
 ![Nespaper Preview](<src/assets/images/ss%20(1).png>) ![Nespaper Preview](<src/assets/images/ss%20(2).png>) ![Nespaper Preview](<src/assets/images/ss%20(3).png>) ![Nespaper Preview](<src/assets/images/ss%20(4).png>)
 
+
+<img src="src/assets/images/ss%20(2).png" alt="Watchlist Page Preview2" width="250"/>
+
 ## Demo
 
 You can view a live demo of the application [here](https://angular-newspaper.netlify.app).
